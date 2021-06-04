@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stun-ism <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 11:34:50 by stun-ism          #+#    #+#             */
-/*   Updated: 2021/06/03 12:06:25 by stun-ism         ###   ########.fr       */
+/*   Created: 2021/03/04 12:30:24 by stun-ism          #+#    #+#             */
+/*   Updated: 2021/03/04 21:29:43 by stun-ism         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int n)
+{
+  unsigned int idx;
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-int ft_strlen(char *str);
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int n);
-
-#endif
+  idx = 0;
+  while (*(src + idx) != '\0')
+  {
+    if (idx < n)
+    {
+      *(dest + idx) = *(src + idx);
+    }
+    if (idx + 1 == n)
+    {
+      *(dest + idx) = '\0';
+    }
+    idx++;
+  }
+  return (idx);
+}
